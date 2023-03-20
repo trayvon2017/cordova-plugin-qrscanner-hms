@@ -1,0 +1,12 @@
+
+ repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+        // repo of HMS Core SDK。
+        maven { url 'https://developer.huawei.com/repo/' }
+    }
+
+dependencies{
+    implementation 'com.huawei.hms:scanplus:2.6.0.301'
+}

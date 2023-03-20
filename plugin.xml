@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin id="corodva-plugin-qrscanner-hms" version="1.0.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+	<name>
+		QrScanner
+	</name>
+	<js-module name="QrScanner" src="www/QrScanner.js">
+		<clobbers target="cordova.plugins.QrScanner" />
+	</js-module>
+	<platform name="android">
+		<config-file parent="/*" target="res/xml/config.xml">
+			<feature name="QrScanner">
+				<param name="android-package" value="com.tryvon2017.cordova.QrScanner" />
+			</feature>
+		</config-file>
+		<config-file target="AndroidManifest.xml" parent="/*">
+      <uses-permission android:name="android.permission.CAMERA" android:required="false" />
+      <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:required="false" />
+    </config-file>
+		<source-file src="src/android/QrScanner.java" target-dir="src/com/tryvon2017/cordova/" />
+		<framework src="src/android/QrScanner.gradle" custom="true" type="gradleReference" />
+	</platform>
+	<platform name="ios">
+		<config-file parent="/*" target="config.xml">
+			<feature name="QrScanner">
+				<param name="ios-package" value="QrScanner" />
+			</feature>
+		</config-file>
+		<source-file src="src/ios/QrScanner.m" />
+		<framework src="ScanKitFrameWork" type="podspec" spec="1.1.0.304"/>
+		<preference name="CAMERA_USAGE_DESCRIPTION" default="请允许APP访问您的相机"/>
+		<config-file target="*-Info.plist" parent="NSCameraUsageDescription">
+			<string>$CAMERA_USAGE_DESCRIPTION</string>
+		</config-file>
+		<preference name="PHOTO_LIBRARY_USAGE_DESCRIPTION" default="请允许APP访问您的相册"/>
+		<config-file target="*-Info.plist" parent="NSPhotoLibraryUsageDescription">
+			<string>$PHOTO_LIBRARY_USAGE_DESCRIPTION</string>
+		</config-file>
+	</platform>
+</plugin>
