@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-qrscanner-hms",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "二维码扫描, 条码扫描,QR code scanner, Fast, bar code scanner, Hms based",
   "repository": {
     "type": "git",
